@@ -1,0 +1,95 @@
+ 
+* {
+
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "Gilroy-Bold", sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+.desktop {
+  background: -o-linear-gradient(315deg, #0f172a, #1e3a8a, #2563eb);
+  background: linear-gradient(135deg, #0f172a, #1e3a8a, #2563eb);
+}
+.taskbar {
+  background-color: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px);
+}
+
+#start-menu {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  bottom: 7%;
+  left: 36%;
+  -webkit-transform: translateY(20px) scale(0.95);
+      -ms-transform: translateY(20px) scale(0.95);
+          transform: translateY(20px) scale(0.95);
+  width: 28%;
+  height:55%;
+  background: #20202099;
+  -webkit-backdrop-filter: blur(20px);
+          backdrop-filter: blur(20px);
+  border: 1px solid #ffffff14;
+  border-radius: 18px;
+  -webkit-box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+          box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  -webkit-transition: opacity 0.25s ease, visibility 0.25s ease, -webkit-transform 0.25s ease;
+
+  transition: opacity 0.25s ease, visibility 0.25s ease, -webkit-transform 0.25s ease;
+
+  -o-transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease, -webkit-transform 0.25s ease;
+  z-index: 20;
+}
+#start-menu.open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+          transform: scale(1);
+}
+.gray{
+  background-color: #dadada50;
+}
+
+.appView{
+   transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+   /* top: 100px;
+   left: 250px; */
+}
+.fullsize{
+  height: calc(100% - 30px);
+  width: 100%;
+  left: 0;
+  top:0;
+  border-radius : 0;
+}
+.hide{
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.active{
+  background-color: #dadada50;
+}
+.running{
+  opacity: 1;
+  visibility:visible;
+}
+.dragging{
+  cursor: grabbing;
+}

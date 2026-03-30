@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <title>OS</title>
+  </head>
+  <body>
+    <div class="desktop h-[100vh] w-[100vw] overflow-hidden relative">
+      <div
+        class="appView h-120 w-200 z-5 bg-gray-800 absolute left-[250px] top-[100px] rounded-xl text-[#dadada] overflow-hidden hide"
+      >
+        <div class="nav w-full h-9 bg-gray-900 flex">
+          <div class="nav-left w-[15%] h-full flex items-center p-1 px-3  ">
+            <img
+              class="h-[80%] w-[17px]"
+              src="./asstes/Notepad_Win11.svg.png"
+              alt=""
+            />
+            <h2 class="px-2 text-sm">Notepad</h2>
+          </div>
+          <div class="nav-center  h-full w-[67.5%] cursor-grab"></div>
+          <div class="nav-right  w-[17.5%] h-full flex justify-end items-center ">
+            <i
+              class="ri-subtract-line minimize   h-full pt-1.5 px-2 hover:bg-[#dadada50]"
+            ></i
+            ><i
+              class="ri-rectangle-line changeSize h-full pt-1.5 px-2 hover:bg-[#dadada50]"
+            ></i
+            ><i
+              class="ri-close-large-line close h-full hover:bg-red-600 px-3 pt-1.5"
+            ></i>
+          </div>
+        </div>
+        <div class="notes h-[calc(100% - 36px)]">
+          <textarea class="h-full  w-full outline-none p-2 px-4 resize-none bg-transparent"></textarea>
+        </div>
+      </div>
+      <div class="apps h-[95%] w-30 flex flex-col flex-wrap gap-y-5 p-6">
+        <div class="app w-16 flex flex-col items-center rounded-[3px]">
+          <img class="p-1 w-[92%]" src="./asstes/22951-256x256x68.png" alt="" />
+          <h3 class="text-[2vh] text-[#dadada]">This PC</h3>
+        </div>
+        <div class="app w-16 flex flex-col items-center rounded-[3px]">
+          <img class="p-1 w-[92%]" src="./asstes/Bin.png" alt="" />
+          <h3 class="text-[2vh] text-[#dadada] text-center">Recyle Bin</h3>
+        </div>
+        <div class="app notepad w-16 flex flex-col items-center rounded-[3px]">
+          <img
+            class="p-1 w-[72%]"
+            src="./asstes/Notepad_Win11.svg.png"
+            alt=""
+          />
+          <h3 class="text-[2vh] text-[#dadada] text-center">Notepad</h3>
+        </div>
+        <div class="app w-16 flex flex-col items-center rounded-[3px]">
+          <img class="p-1 w-[92%]" src="./asstes/microsoft.png" alt="" />
+          <h3 class="text-[2vh] text-[#dadada] text-center">Edge</h3>
+        </div>
+      </div>
+
+      <div
+        class="taskbar w-full h-[30px] rounded overflow-hidden absolute bottom-0 flex justify-between items-center border border-[#20202010] z-50"
+      >
+        <div class="taskbar-left h-full w-20"></div>
+        <div
+          class="taskbar-center h-full w-[20%] flex items-center justify-center gap-2 overflow-hidden "
+        >
+          <!-- <img
+            class="h-[80%] object-cover active:scale-90 rounded-xl window-logo"
+            src="./asstes/[CITYPNG.COM]HD Windows 11 Logo Icon Transparent Background - 2000x2000.png"
+            alt=""
+          /> -->
+          <div class="h-full w-[10%] hover:bg-[#dadada50] hover:rounded  flex items-center justify-center window-logo "><img
+            class="h-[80%] object-cover active:scale-90 rounded-xl"
+            src="./asstes/[CITYPNG.COM]HD Windows 11 Logo Icon Transparent Background - 2000x2000.png"
+            alt=""
+          /></div>
+          <div class="h-full w-[10%] hover:bg-[#dadada50] hover:rounded  flex items-center justify-center "><img
+            class="h-[80%] object-cover active:scale-90 rounded-xl"
+            src="./asstes/icons8-file-explorer-new-48.png"
+            alt=""
+          /></div>
+          
+          <div class="h-full w-[10%] hover:bg-[#dadada50] hover:rounded  flex items-center justify-center hide taskbar-notepad relative "><img
+            class="h-[65%] w-[70%] object-cover active:scale-90 rounded "
+            src="./asstes/Notepad_Win11.svg.png"
+            alt=""
+          />
+          <div class="absolute w-[50%] bg-blue-300 h-[2px] top-[90%] left-[25%] rounded-3xl hide working"></div>
+        </div>
+          
+        </div>
+        <div
+          class="taskbar-right h-full w-41 px-5 flex justify-between items-center text-[#dadada]"
+        >
+          <div class="flex items-center justify-center gap-2">
+            <i class="ri-wifi-line"></i><i class="ri-volume-up-line"></i
+            ><i class="ri-battery-fill"></i>
+          </div>
+          <div
+            class="flex flex-col items-evenly justify-center text-[1.7vh] font-thin pt-1 pb-0.5"
+          >
+            <h2 class="time"></h2>
+            <h2 class="date -mt-1"></h2>
+          </div>
+        </div>
+      </div>
+      <div id="start-menu" class="flex flex-col overflow-hidden">
+        <div class="menu-top p-4 overflow-hidden relative bg-[#20202050]">
+          <input
+            class="w-full rounded-2xl border border-[#ffffff14] px-10 text-white text-md tracking-tight outline-none py-1"
+            type="text"
+            placeholder="Search for apps, settings, and documents"
+          />
+          <i
+            class="ri-search-line text-white absolute left-6 top-5 z-10 left-4"
+          ></i>
+        </div>
+        <div class="menu-center h-58 flex flex-col mt-1">
+          <h2 class="text-[#ffffff99] px-7 mt-2 text-sm">Pinned</h2>
+          <div
+            class="apps flex flex-wrap gap-x-12 gap-y-4 items-center justify-start p-5 px-10"
+          >
+            <div class="w-6 flex flex-col items-center justify-center">
+              <img
+                class="h-full w-full mb-1"
+                src="./asstes/whatsapp.png"
+                alt=""
+              />
+              <h3 class="text-[#ffffff99] text-[2vh]">WhatsApp</h3>
+            </div>
+            <div class="w-6 flex flex-col items-center justify-center">
+              <img
+                class="h-full w-full object-cover mb-1"
+                src="./asstes/telegram.png"
+                alt=""
+              />
+              <h3 class="text-[#ffffff99] text-[2vh]">Telegram</h3>
+            </div>
+            <div class="w-6 flex flex-col items-center justify-center">
+              <img
+                class="h-full w-full object-cover mb-1"
+                src="./asstes/microsoft.png"
+                alt=""
+              />
+              <h3 class="text-[#ffffff99] text-[2vh]">Edge</h3>
+            </div>
+            <div class="w-6 flex flex-col items-center justify-center">
+              <img
+                class="h-full w-full object-cover mb-1"
+                src="./asstes/Microsoft_Store_2021_Light.svg"
+                alt=""
+              />
+              <h3 class="text-[#ffffff99] text-[2vh] text-center">Store</h3>
+            </div>
+            <div class="w-6 flex flex-col items-center justify-center">
+              <img
+                class="h-full w-full object-cover mb-1"
+                src="./asstes/vecteezy_microsoft-word-icon-logo-symbol_27179388.png"
+                alt=""
+              />
+              <h3 class="text-[#ffffff99] text-[2vh]">Word</h3>
+            </div>
+            <div class="w-6 flex flex-col items-center justify-center">
+              <img
+                class="h-full w-full object-cover mb-1"
+                src="./asstes/photos-newicon.png"
+                alt=""
+              />
+              <h3 class="text-[#ffffff99] text-[2vh]">Photos</h3>
+            </div>
+            <div class="w-6 flex flex-col items-center justify-center">
+              <img
+                class="h-full w-full object-cover mb-1"
+                src="./asstes/linkedin.png"
+                alt=""
+              />
+              <h3 class="text-[#ffffff99] text-[2vh]">LinkedIn</h3>
+            </div>
+            <div class="w-6 flex flex-col items-center justify-center">
+              <img
+                class="h-full w-full object-cover mb-1"
+                src="./asstes/Windows_Settings_icon.svg.png"
+                alt=""
+              />
+              <h3 class="text-[#ffffff99] text-[2vh]">Settings</h3>
+            </div>
+            <div class="w-6 flex flex-col items-center justify-center">
+              <img
+                class="h-full w-full object-cover mb-1"
+                src="./asstes/calculator.png"
+                alt=""
+              />
+              <h3 class="text-[#ffffff99] text-[2vh]">Calculator</h3>
+            </div>
+            <div class="w-6 flex flex-col items-center justify-center">
+              <img
+                class="h-full w-full object-cover mb-1"
+                src="./asstes/Windows_Clock_App_Icon.svg.png"
+                alt=""
+              />
+              <h3 class="text-[#ffffff99] text-[2vh]">Clock</h3>
+            </div>
+            <div class="w-6 flex flex-col items-center notepad justify-center">
+              <img
+                class="h-full w-full object-cover mb-1"
+                src="./asstes/Notepad_Win11.svg.png"
+                alt=""
+              />
+              <h3 class="text-[#ffffff99] text-[2vh]">Notepad</h3>
+            </div>
+          </div>
+        </div>
+        <div
+          class="menu-bottom h-10 flex justify-between items-center bg-[#20202050]"
+        >
+          <div class="bottom-left flex items-center justify-between">
+            <i class="ri-user-line text-[#ffffff99] pl-8 text-xl"></i>
+            <h3 class="text-[#ffffff99] pl-1.5 font-thin text-sm">User</h3>
+          </div>
+          <div class="bottom-right mr-7">
+            <i class="ri-shut-down-line text-xl text-[#ffffff99]"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
