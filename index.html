@@ -13,8 +13,7 @@
   </head>
   <body>
     <div class="desktop h-[100vh] w-[100vw] overflow-hidden relative">
-      <div
-        class="appView h-120 w-200 z-5 bg-gray-800 absolute left-[250px] top-[100px] rounded-xl text-[#dadada] overflow-hidden hide"
+      <div   class="appView h-120 w-200 z-5 bg-gray-800 absolute left-[250px] top-[100px] rounded-xl text-[#dadada] overflow-hidden hide"
       >
         <div class="nav w-full h-9 bg-gray-900 flex">
           <div class="nav-left w-[15%] h-full flex items-center p-1 px-3  ">
@@ -42,8 +41,55 @@
           <textarea class="h-full  w-full outline-none p-2 px-4 resize-none bg-transparent"></textarea>
         </div>
       </div>
+      <div class="file-manager h-120 w-200 z-5 bg-gray-800 absolute left-[250px] top-[100px] rounded-xl text-[#dadada] overflow-hidden hide flex flex-col">
+        <div class="nav w-full h-9 bg-gray-900 flex">
+          <div class="pc-left w-[19%] h-full flex items-center p-1 px-3 ">
+            <img
+              class="h-[80%] w-[22px]"
+              src="./asstes/icons8-file-explorer-new-48.png"
+              alt=""
+            />
+            <h2 class="px-2 text-sm">File Explorer</h2>
+          </div>
+          <div class="pc-center  h-full w-[67.5%] cursor-grab "></div>
+          <div class="pc-right  w-[17.5%] h-full flex justify-end items-center  ">
+            <i
+              class="ri-subtract-line minimize   h-full pt-1.5 px-2 hover:bg-[#dadada50]"
+            ></i
+            ><i
+              class="ri-rectangle-line changeSize h-full pt-1.5 px-2 hover:bg-[#dadada50]"
+            ></i
+            ><i
+              class="ri-close-large-line close h-full hover:bg-red-600 px-3 pt-1.5"
+            ></i>
+          </div>
+        </div>
+        <div class="pc-body h-full   w-full">
+          <div class="control-panel w-full h-9 flex justify-between items-center bg-gray-700 ">
+            <div class="panel-left h-full w-[75%]  flex items-center justify-start gap-x-4 px-3">
+              <i class="ri-arrow-left-line"></i>
+              <i class="ri-arrow-right-line"></i>
+              <i class="ri-arrow-up-long-line"></i>
+              <i class="ri-reset-right-line rotate-40"></i>
+              <i class="ri-home-4-line"></i>
+            </div>
+            <div class="panel-right h-full w-[25%] px-1 relative ">
+              <input type="text" class="h-full w-full px-4 outline-none text-sm" placeholder="Search Home">
+              <i class="ri-search-line absolute right-5 top-2 text-sm"></i>
+            </div>
+          </div>
+          <div class="pc-body-main h-[95%] w-full bg-blue-200 flex">
+            <div class="body-main-left h-full w-[17%] bg-red-300">
+              <div class="left-top h-[20%] w-full bg-pink-300"></div>
+              <div class="left-center h-[50%] w-full bg-pink-500 "></div>
+              <div class="left-bottom h-[30%] w-full bg-pink-700" ></div>
+            </div>
+            <div class="body-main-right h-full w-[83%] bg-green-400" ></div>
+          </div>
+        </div>
+      </div>
       <div class="apps h-[95%] w-30 flex flex-col flex-wrap gap-y-5 p-6">
-        <div class="app w-16 flex flex-col items-center rounded-[3px]">
+        <div class="app this-pc w-16 flex flex-col items-center rounded-[3px]">
           <img class="p-1 w-[92%]" src="./asstes/22951-256x256x68.png" alt="" />
           <h3 class="text-[2vh] text-[#dadada]">This PC</h3>
         </div>

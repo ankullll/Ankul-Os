@@ -11,6 +11,8 @@ const changeSize = document.querySelector(".changeSize");
 const taskbarNotepad = document.querySelector(".taskbar-notepad");
 const working = document.querySelector(".working");
 const appHeader = document.querySelector(".nav-center");
+const fileManager = document.querySelector('.file-manager')
+const thisPc = document.querySelector('.this-pc')
 
 start.addEventListener("click", (e) => {
   e.stopPropagation();
@@ -171,4 +173,10 @@ document.addEventListener("mouseup", () => {
 appHeader.addEventListener('dblclick',()=>{
   console.log("working")
   appView.classList.toggle('fullsize')
+})
+
+thisPc.addEventListener('dblclick',()=>{
+  fileManager.classList.remove("hide");
+  // fileManager.classList.toggle("fullsize");
+  console.log('working')
 })
