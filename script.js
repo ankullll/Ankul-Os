@@ -166,3 +166,9 @@ document.addEventListener("mouseup", () => {
   isDragging = false;
   appHeader.classList.remove("dragging");
 });
+
+
+appHeader.addEventListener('dblclick',()=>{
+  console.log("working")
+  appView.classList.toggle('fullsize')
+})
