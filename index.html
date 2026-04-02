@@ -9,14 +9,15 @@
       href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css"
       rel="stylesheet"
     />
-    <title>OS</title>
+    <title>ANKUL OS</title>
   </head>
   <body>
     <div class="desktop h-[100vh] w-[100vw] overflow-hidden relative">
-      <div   class="appView h-120 w-200 z-5 bg-gray-800 absolute left-[250px] top-[100px] rounded-xl text-[#dadada] overflow-hidden hide"
+      <div
+        class="appView h-120 w-200 z-5 bg-gray-800 absolute left-[250px] top-[100px] rounded-xl text-[#dadada] overflow-hidden hide border border-[#ffffff45]"
       >
         <div class="nav w-full h-9 bg-gray-900 flex">
-          <div class="nav-left w-[15%] h-full flex items-center p-1 px-3  ">
+          <div class="nav-left w-[15%] h-full flex items-center p-1 px-3">
             <img
               class="h-[80%] w-[17px]"
               src="./asstes/Notepad_Win11.svg.png"
@@ -24,10 +25,10 @@
             />
             <h2 class="px-2 text-sm">Notepad</h2>
           </div>
-          <div class="nav-center  h-full w-[67.5%] cursor-grab"></div>
-          <div class="nav-right  w-[17.5%] h-full flex justify-end items-center ">
+          <div class="nav-center h-full w-[67.5%] cursor-grab"></div>
+          <div class="nav-right w-[17.5%] h-full flex justify-end items-center">
             <i
-              class="ri-subtract-line minimize   h-full pt-1.5 px-2 hover:bg-[#dadada50]"
+              class="ri-subtract-line minimize h-full pt-1.5 px-2 hover:bg-[#dadada50]"
             ></i
             ><i
               class="ri-rectangle-line changeSize h-full pt-1.5 px-2 hover:bg-[#dadada50]"
@@ -38,12 +39,16 @@
           </div>
         </div>
         <div class="notes h-[calc(100% - 36px)]">
-          <textarea class="h-full  w-full outline-none p-2 px-4 resize-none bg-transparent"></textarea>
+          <textarea
+            class="h-full w-full outline-none p-2 px-4 resize-none bg-transparent"
+          ></textarea>
         </div>
       </div>
-      <div class="file-manager h-120 w-200 z-5 bg-gray-800 absolute left-[250px] top-[100px] rounded-xl text-[#dadada] overflow-hidden hide flex flex-col">
+      <div
+        class="file-manager h-120 w-200 z-5 bg-gray-800 absolute left-[250px] top-[100px] rounded-xl text-[#dadada] overflow-hidden hide flex flex-col border border-[#ffffff45]"
+      >
         <div class="nav w-full h-9 bg-gray-900 flex">
-          <div class="pc-left w-[19%] h-full flex items-center p-1 px-3 ">
+          <div class="pc-left w-[19%] h-full flex items-center p-1 px-3">
             <img
               class="h-[80%] w-[22px]"
               src="./asstes/icons8-file-explorer-new-48.png"
@@ -51,36 +56,46 @@
             />
             <h2 class="px-2 text-sm">File Explorer</h2>
           </div>
-          <div class="pc-center  h-full w-[67.5%] cursor-grab "></div>
-          <div class="pc-right  w-[17.5%] h-full flex justify-end items-center  ">
+          <div class="pc-center h-full w-[67.5%] cursor-grab"></div>
+          <div class="pc-right w-[17.5%] h-full flex justify-end items-center">
             <i
-              class="ri-subtract-line minimize   h-full pt-1.5 px-2 hover:bg-[#dadada50]"
+              class="ri-subtract-line minimizePC h-full pt-1.5 px-2 hover:bg-[#dadada50]"
             ></i
             ><i
-              class="ri-rectangle-line changeSize h-full pt-1.5 px-2 hover:bg-[#dadada50]"
+              class="ri-rectangle-line changeSizePC h-full pt-1.5 px-2 hover:bg-[#dadada50]"
             ></i
             ><i
-              class="ri-close-large-line close h-full hover:bg-red-600 px-3 pt-1.5"
+              class="ri-close-large-line closePC h-full hover:bg-red-600 px-3 pt-1.5"
             ></i>
           </div>
         </div>
-        <div class="pc-body h-full   w-full">
-          <div class="control-panel w-full h-9 flex justify-between items-center bg-gray-700 ">
-            <div class="panel-left h-full w-[75%]  flex items-center justify-start gap-x-4 px-3">
+        <div class="pc-body h-full w-full">
+          <div
+            class="control-panel w-full h-9 flex justify-between items-center bg-gray-700"
+          >
+            <div
+              class="panel-left h-full w-[75%] flex items-center justify-start gap-x-4 px-3"
+            >
               <i class="ri-arrow-left-line"></i>
               <i class="ri-arrow-right-line"></i>
               <i class="ri-arrow-up-long-line"></i>
               <i class="ri-reset-right-line rotate-40"></i>
               <i class="ri-home-4-line"></i>
             </div>
-            <div class="panel-right h-full w-[25%] px-1 relative ">
-              <input type="text" class="h-full w-full px-4 outline-none text-sm bg-[#ffffff15] rounded-xl" placeholder="Search Home">
+            <div class="panel-right h-full w-[25%] px-1 relative">
+              <input
+                type="text"
+                class="h-full w-full px-4 outline-none text-sm bg-[#ffffff15] rounded-xl"
+                placeholder="Search Home"
+              />
               <i class="ri-search-line absolute right-5 top-2 text-sm"></i>
             </div>
           </div>
-          <div class="pc-body-main h-[95%] w-full  flex">
-            <div class="body-main-left h-full w-[20%] border-r border-[#ffffff25] ">
-              <div class="left-top h-[70%] w-full  px-4">
+          <div class="pc-body-main h-[95%] w-full flex">
+            <div
+              class="body-main-left h-full w-[20%] border-r border-[#ffffff25]"
+            >
+              <div class="left-top h-[70%] w-full px-4">
                 <h3 class="px-2 pt-3">Quick Access</h3>
                 <h3 class="px-2 pt-2">Desktop</h3>
                 <h3 class="px-2 pt-2">Documents</h3>
@@ -88,45 +103,82 @@
                 <h3 class="px-2 pt-2">Pictures</h3>
                 <h3 class="px-2 pt-2">Music</h3>
                 <h3 class="px-2 pt-2">This PC</h3>
-                <h3 class="px-2 pt-2  ">Network</h3>
-                <div class="w-full h-[1px] bg-[#ffffff25] mt-5 "></div>
+                <h3 class="px-2 pt-2">Network</h3>
+                <div class="w-full h-[1px] bg-[#ffffff25] mt-5"></div>
               </div>
-             
             </div>
-            <div class="body-main-right  w-[83%]  flex px-3 pt-2 flex-col" >
-              <div class=" flex p-5 gap-x-5 flex-wrap  flex-none justify-start w-full h-[45%] " >
-                 <div class="folder h-15 w-40 border border-[#ffffff25] flex justify-start items-center rounded  ">
-                <img class="h-[90%]" src="./asstes/Folder-icon-design-on-transparent-background-PNG.png" alt="">
-                <h1 class="px-2 ">Desktop</h1>
-              </div>
-              <div class="folder h-15 w-40 border border-[#ffffff25] flex justify-start items-center rounded flex-wrap">
-                <img class="h-[90%]" src="./asstes/Folder-icon-design-on-transparent-background-PNG.png" alt="">
-                <h1 class="px-2 ">Documents</h1>
-              </div>
-              <div class="folder h-15 w-40 border border-[#ffffff25] flex justify-start items-center rounded flex-wrap">
-                <img class="h-[90%]" src="./asstes/Folder-icon-design-on-transparent-background-PNG.png" alt="">
-                <h1 class="px-2 ">Downloads</h1>
-              </div>
-              <div class="folder h-15 w-40 border border-[#ffffff25] flex justify-start items-center rounded flex-wrap ">
-                <img class="h-[90%]" src="./asstes/Folder-icon-design-on-transparent-background-PNG.png" alt="">
-                <h1 class="px-2 ">Pictures</h1>
-              </div>
-              </div>
-             <div class="w-full h-[52%] -mt-5 flex- flex-col"> 
-              <h1 class="px-3 border-b pb-1 border-[#ffffff25]">Devices and Drives</h1>
-              <div class="w-full h-[88%]  px-3 pt-2 flex gap-x-4">
-                <div class="folder h-15 w-45 border border-[#ffffff25] flex justify-start items-center rounded  ">
-                <img class="h-[90%]" src="./asstes/dert5u8-e9ab80cb-9e26-4f74-a8b6-eabf3bb51135.png" alt="">
-                <div class="flex flex-col">
-                  <h1 class="px-2 text-sm ">Local Disk (C:)</h1>
-                  <div class="h-[10px] w-[90%] ml-2 mt-1/2 bg-[#dadada] border">
-                    <div class="h-full w-[55%] bg-blue-400"></div>
-                  </div>
-                  <h3 class="text-[1.5vh] px-3 mt-1">258 GB free of 475 GB</h3>
+            <div class="body-main-right w-[83%] flex px-3 pt-2 flex-col">
+              <div
+                class="flex p-5 gap-x-5 flex-wrap flex-none justify-start w-full h-[45%]"
+              >
+                <div
+                  class="folder h-15 w-40 border border-[#ffffff25] flex justify-start items-center rounded"
+                >
+                  <img
+                    class="h-[90%]"
+                    src="./asstes/Folder-icon-design-on-transparent-background-PNG.png"
+                    alt=""
+                  />
+                  <h1 class="px-2">Desktop</h1>
+                </div>
+                <div
+                  class="folder h-15 w-40 border border-[#ffffff25] flex justify-start items-center rounded flex-wrap"
+                >
+                  <img
+                    class="h-[90%]"
+                    src="./asstes/Folder-icon-design-on-transparent-background-PNG.png"
+                    alt=""
+                  />
+                  <h1 class="px-2">Documents</h1>
+                </div>
+                <div
+                  class="folder h-15 w-40 border border-[#ffffff25] flex justify-start items-center rounded flex-wrap"
+                >
+                  <img
+                    class="h-[90%]"
+                    src="./asstes/Folder-icon-design-on-transparent-background-PNG.png"
+                    alt=""
+                  />
+                  <h1 class="px-2">Downloads</h1>
+                </div>
+                <div
+                  class="folder h-15 w-40 border border-[#ffffff25] flex justify-start items-center rounded flex-wrap"
+                >
+                  <img
+                    class="h-[90%]"
+                    src="./asstes/Folder-icon-design-on-transparent-background-PNG.png"
+                    alt=""
+                  />
+                  <h1 class="px-2">Pictures</h1>
                 </div>
               </div>
+              <div class="w-full h-[52%] -mt-5 flex- flex-col">
+                <h1 class="px-3 border-b pb-1 border-[#ffffff25]">
+                  Devices and Drives
+                </h1>
+                <div class="w-full h-[88%] px-3 pt-2 flex gap-x-4">
+                  <div
+                    class="folder h-15 w-45 border border-[#ffffff25] flex justify-start items-center rounded"
+                  >
+                    <img
+                      class="h-[90%]"
+                      src="./asstes/dert5u8-e9ab80cb-9e26-4f74-a8b6-eabf3bb51135.png"
+                      alt=""
+                    />
+                    <div class="flex flex-col">
+                      <h1 class="px-2 text-sm">Local Disk (C:)</h1>
+                      <div
+                        class="h-[10px] w-[90%] ml-2 mt-1/2 bg-[#dadada] border"
+                      >
+                        <div class="h-full w-[55%] bg-blue-400"></div>
+                      </div>
+                      <h3 class="text-[1.5vh] px-3 mt-1">
+                        258 GB free of 475 GB
+                      </h3>
+                    </div>
+                  </div>
+                </div>
               </div>
-             </div>
             </div>
           </div>
         </div>
@@ -154,37 +206,51 @@
         </div>
       </div>
 
-      <div
-        class="taskbar w-full h-[30px] rounded overflow-hidden absolute bottom-0 flex justify-between items-center border border-[#20202010] z-50"
+      <div class="taskbar w-full h-[30px] rounded overflow-hidden absolute bottom-0 flex justify-between items-center border border-[#20202010] z-50"
       >
         <div class="taskbar-left h-full w-20"></div>
         <div
-          class="taskbar-center h-full w-[20%] flex items-center justify-center gap-2 overflow-hidden "
+          class="taskbar-center h-full w-[20%] flex items-center justify-center gap-2 overflow-hidden"
         >
           <!-- <img
             class="h-[80%] object-cover active:scale-90 rounded-xl window-logo"
             src="./asstes/[CITYPNG.COM]HD Windows 11 Logo Icon Transparent Background - 2000x2000.png"
             alt=""
           /> -->
-          <div class="h-full w-[10%] hover:bg-[#dadada50] hover:rounded  flex items-center justify-center window-logo "><img
-            class="h-[80%] object-cover active:scale-90 rounded-xl"
-            src="./asstes/[CITYPNG.COM]HD Windows 11 Logo Icon Transparent Background - 2000x2000.png"
-            alt=""
-          /></div>
-          <div class="h-full w-[10%] hover:bg-[#dadada50] hover:rounded  flex items-center justify-center "><img
-            class="h-[80%] object-cover active:scale-90 rounded-xl"
-            src="./asstes/icons8-file-explorer-new-48.png"
-            alt=""
-          /></div>
-          
-          <div class="h-full w-[10%] hover:bg-[#dadada50] hover:rounded  flex items-center justify-center hide taskbar-notepad relative "><img
-            class="h-[65%] w-[70%] object-cover active:scale-90 rounded "
-            src="./asstes/Notepad_Win11.svg.png"
-            alt=""
-          />
-          <div class="absolute w-[50%] bg-blue-300 h-[2px] top-[90%] left-[25%] rounded-3xl hide working"></div>
-        </div>
-          
+          <div
+            class="h-full w-[10%] hover:bg-[#dadada50] hover:rounded flex items-center justify-center window-logo"
+          >
+            <img
+              class="h-[80%] object-cover active:scale-90 rounded-xl"
+              src="./asstes/[CITYPNG.COM]HD Windows 11 Logo Icon Transparent Background - 2000x2000.png"
+              alt=""
+            />
+          </div>
+          <div
+            class="h-full file-manager-taskbar w-[10%] hover:bg-[#dadada50] hover:rounded flex items-center justify-center relative"
+          >
+            <img
+              class="h-[80%] object-cover active:scale-90 rounded-xl"
+              src="./asstes/icons8-file-explorer-new-48.png"
+              alt=""
+            />
+            <div
+              class="absolute w-[50%] bg-blue-300 h-[2px] top-[90%] left-[25%] rounded-3xl hide working-pc"
+            ></div>
+          </div>
+
+          <div
+            class="h-full w-[10%] hover:bg-[#dadada50] hover:rounded flex items-center justify-center hide taskbar-notepad relative"
+          >
+            <img
+              class="h-[65%] w-[70%] object-cover active:scale-90 rounded"
+              src="./asstes/Notepad_Win11.svg.png"
+              alt=""
+            />
+            <div
+              class="absolute w-[50%] bg-blue-300 h-[2px] top-[90%] left-[25%] rounded-3xl hide working-notepad"
+            ></div>
+          </div>
         </div>
         <div
           class="taskbar-right h-full w-41 px-5 flex justify-between items-center text-[#dadada]"

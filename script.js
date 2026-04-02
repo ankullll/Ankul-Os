@@ -9,10 +9,16 @@ const close = document.querySelector(".close");
 const minimize = document.querySelector(".minimize");
 const changeSize = document.querySelector(".changeSize");
 const taskbarNotepad = document.querySelector(".taskbar-notepad");
-const working = document.querySelector(".working");
+const workingNotepad = document.querySelector(".working-notepad");
 const appHeader = document.querySelector(".nav-center");
-const fileManager = document.querySelector('.file-manager')
-const thisPc = document.querySelector('.this-pc')
+const fileManager = document.querySelector(".file-manager");
+const thisPc = document.querySelector(".this-pc");
+const closePc = document.querySelector(".closePC");
+const fileManagerTaskbar = document.querySelector(".file-manager-taskbar");
+const workingPC = document.querySelector('.working-pc')
+const minimizePC = document.querySelector('.minimizePC')
+const changeSizePC = document.querySelector('.changeSizePC')
+const pcHeader = document.querySelector('.pc-center');
 
 start.addEventListener("click", (e) => {
   e.stopPropagation();
@@ -63,22 +69,32 @@ let topZindex = 100;
 notepad.forEach((e) => {
   e.addEventListener("dblclick", (e) => {
     e.stopPropagation();
-    // appView.classList.add('fullsize')
     appView.classList.remove("hide");
     taskbarNotepad.classList.remove("hide");
     taskbarNotepad.classList.add("active");
-    working.classList.add("running");
+    workingNotepad.classList.add("running");
     startMenu.classList.remove("open");
     topZindex++;
     appView.style.zIndex = topZindex;
+
+    app.forEach((app) => {
+    app.classList.remove("gray");
+    });
+
+
   });
 });
+
+appView.addEventListener('click',()=>{
+  topZindex++;
+  appView.style.zIndex = topZindex;
+})
 
 close.addEventListener("click", () => {
   appView.classList.add("hide");
   taskbarNotepad.classList.add("hide");
   taskbarNotepad.classList.remove("active");
-  working.classList.remove("running");
+  workingNotepad.classList.remove("running");
 });
 minimize.addEventListener("click", () => {
   appView.classList.add("hide");
@@ -112,11 +128,11 @@ taskbarNotepad.addEventListener("click", () => {
   if (appView.classList.contains("hide")) {
     appView.classList.remove("hide");
     taskbarNotepad.classList.add("active");
-    working.classList.add("running");
+    workingNotepad.classList.add("running");
   } else {
     appView.classList.add("hide");
     taskbarNotepad.classList.remove("active");
-    working.classList.add("running");
+    workingNotepad.classList.add("running");
   }
   topZindex++;
   appView.style.zIndex = topZindex;
@@ -138,10 +154,13 @@ appHeader.addEventListener("mousedown", (e) => {
   appHeader.classList.add("dragging");
 
   const rect = appView.getBoundingClientRect();
-  
 
   offsetX = e.clientX - rect.left;
   offsetY = e.clientY - rect.top;
+
+
+  topZindex++;
+  appView.style.zIndex = topZindex;
 });
 
 document.addEventListener("mousemove", (e) => {
@@ -169,14 +188,115 @@ document.addEventListener("mouseup", () => {
   appHeader.classList.remove("dragging");
 });
 
+appHeader.addEventListener("dblclick", () => {
+  appView.classList.toggle("fullsize");
+});
 
-appHeader.addEventListener('dblclick',()=>{
-  console.log("working")
-  appView.classList.toggle('fullsize')
+thisPc.addEventListener("dblclick", (e) => {
+  e.stopPropagation()
+  fileManager.classList.remove("hide");
+  fileManagerTaskbar.classList.add("active");
+  workingPC.classList.add("running");
+  topZindex++;
+  fileManager.style.zIndex = topZindex;
+   app.forEach((app) => {
+    app.classList.remove("gray");
+  });
+});
+
+closePc.addEventListener("click", () => {
+  fileManager.classList.add("hide");
+  fileManagerTaskbar.classList.remove('active')
+  workingPC.classList.remove('running')
+  topZindex++;
+  fileManager.style.zIndex = topZindex;
+});
+
+minimizePC.addEventListener('click',()=>{
+  fileManager.classList.add('hide')
+  fileManagerTaskbar.classList.remove('active')
+  topZindex++;
+  fileManager.style.zIndex = topZindex;
 })
 
-thisPc.addEventListener('dblclick',()=>{
-  fileManager.classList.remove("hide");
-  // fileManager.classList.toggle("fullsize");
-  console.log('working')
+let prevLeftPC;
+let prevTopPC;
+
+changeSizePC.addEventListener('click',()=>{
+  topZindex++;
+  fileManager.style.zIndex = topZindex;
+
+  if(!fileManager.classList.contains('fullsize')){
+    prevLeftPC = fileManager.offsetLeft;
+    prevTopPC = fileManager.offsetTop;
+
+    fileManager.classList.add('fullsize')
+    fileManager.style.left = "0px";
+    fileManager.style.top = "0px";
+  } else{
+    fileManager.classList.remove('fullsize')
+    fileManager.style.left = `${prevLeftPC}px`
+    fileManager.style.top = `${prevTopPC}px`
+  }
+});
+
+fileManagerTaskbar.addEventListener('click',()=>{
+  if(fileManager.classList.contains('hide')){
+    fileManager.classList.remove('hide');
+    fileManagerTaskbar.add('active');
+    workingPC.classList.add('running')
+  } else{
+    fileManager.classList.add('hide');
+    fileManagerTaskbar.classList.remove('active');
+    workingPC.classList.add('running')
+  }
+  topZindex++;
+  fileManager.style.zIndex = topZindex;
+})
+
+let isDraggingPC = false;
+let offsetXPC = 0;
+let offsetYPC = 0;
+ 
+pcHeader.addEventListener('mousedown',(e)=>{
+  if(fileManager.classList.contains('fullsize')) return
+  if(e.target === minimizePC || e.target === changeSizePC || e.target === closePc) return
+
+  isDraggingPC = true;
+  pcHeader.classList.add('dragging');
+
+  const PCrect = fileManager.getBoundingClientRect();
+  offsetXPC = e.clientX - PCrect.left;
+  offsetYPC = e.clientY - PCrect.top;
+
+  topZindex++;
+  fileManager.style.zIndex = topZindex;
+})
+document.addEventListener('mousemove',(e)=>{
+  if(!isDraggingPC) return
+
+  let newLeftPC = e.clientX - offsetXPC;
+  let newTopPC = e.clientY - offsetYPC;
+
+  const taskbarHeight = 40;
+  const maxLeft = window.innerWidth - fileManager.offsetWidth;
+  const maxTop = window.innerHeight - taskbarHeight - fileManager.offsetHeight;
+
+  if (newLeftPC < 0) newLeftPC = 0;
+  if (newTopPC < 0) newTopPC = 0;
+  if (newLeftPC > maxLeft) newLeftPC = maxLeft;
+  if (newTopPC > maxTop) newTopPC = maxTop;
+
+  fileManager.style.left = `${newLeftPC}px`
+  fileManager.style.top = `${newTopPC}px`
+})
+
+document.addEventListener('mouseup',()=>{
+  isDraggingPC = false;
+  fileManager.classList.remove('dragging')
+})
+
+fileManager.addEventListener('click',()=>{
+  topZindex++;
+  fileManager.style.zIndex = topZindex;
 })
