@@ -15,10 +15,14 @@ const fileManager = document.querySelector(".file-manager");
 const thisPc = document.querySelector(".this-pc");
 const closePc = document.querySelector(".closePC");
 const fileManagerTaskbar = document.querySelector(".file-manager-taskbar");
-const workingPC = document.querySelector('.working-pc')
-const minimizePC = document.querySelector('.minimizePC')
-const changeSizePC = document.querySelector('.changeSizePC')
-const pcHeader = document.querySelector('.pc-center');
+const workingPC = document.querySelector(".working-pc");
+const minimizePC = document.querySelector(".minimizePC");
+const changeSizePC = document.querySelector(".changeSizePC");
+const pcHeader = document.querySelector(".pc-center");
+const chooseFolder = document.querySelector(".chooseFolder");
+const desktopFolder = document.querySelectorAll(".desktopFolder");
+const folderContent = document.querySelector('.folderContent')
+const documentFolder = document.querySelectorAll('.documentsFolder')
 
 start.addEventListener("click", (e) => {
   e.stopPropagation();
@@ -78,17 +82,15 @@ notepad.forEach((e) => {
     appView.style.zIndex = topZindex;
 
     app.forEach((app) => {
-    app.classList.remove("gray");
+      app.classList.remove("gray");
     });
-
-
   });
 });
 
-appView.addEventListener('click',()=>{
+appView.addEventListener("click", () => {
   topZindex++;
   appView.style.zIndex = topZindex;
-})
+});
 
 close.addEventListener("click", () => {
   appView.classList.add("hide");
@@ -158,7 +160,6 @@ appHeader.addEventListener("mousedown", (e) => {
   offsetX = e.clientX - rect.left;
   offsetY = e.clientY - rect.top;
 
-
   topZindex++;
   appView.style.zIndex = topZindex;
 });
@@ -193,77 +194,82 @@ appHeader.addEventListener("dblclick", () => {
 });
 
 thisPc.addEventListener("dblclick", (e) => {
-  e.stopPropagation()
+  e.stopPropagation();
   fileManager.classList.remove("hide");
   fileManagerTaskbar.classList.add("active");
   workingPC.classList.add("running");
   topZindex++;
   fileManager.style.zIndex = topZindex;
-   app.forEach((app) => {
+  app.forEach((app) => {
     app.classList.remove("gray");
   });
 });
 
 closePc.addEventListener("click", () => {
   fileManager.classList.add("hide");
-  fileManagerTaskbar.classList.remove('active')
-  workingPC.classList.remove('running')
+  fileManagerTaskbar.classList.remove("active");
+  workingPC.classList.remove("running");
   topZindex++;
   fileManager.style.zIndex = topZindex;
 });
 
-minimizePC.addEventListener('click',()=>{
-  fileManager.classList.add('hide')
-  fileManagerTaskbar.classList.remove('active')
+minimizePC.addEventListener("click", () => {
+  fileManager.classList.add("hide");
+  fileManagerTaskbar.classList.remove("active");
   topZindex++;
   fileManager.style.zIndex = topZindex;
-})
+});
 
 let prevLeftPC;
 let prevTopPC;
 
-changeSizePC.addEventListener('click',()=>{
+changeSizePC.addEventListener("click", () => {
   topZindex++;
   fileManager.style.zIndex = topZindex;
 
-  if(!fileManager.classList.contains('fullsize')){
+  if (!fileManager.classList.contains("fullsize")) {
     prevLeftPC = fileManager.offsetLeft;
     prevTopPC = fileManager.offsetTop;
 
-    fileManager.classList.add('fullsize')
+    fileManager.classList.add("fullsize");
     fileManager.style.left = "0px";
     fileManager.style.top = "0px";
-  } else{
-    fileManager.classList.remove('fullsize')
-    fileManager.style.left = `${prevLeftPC}px`
-    fileManager.style.top = `${prevTopPC}px`
+  } else {
+    fileManager.classList.remove("fullsize");
+    fileManager.style.left = `${prevLeftPC}px`;
+    fileManager.style.top = `${prevTopPC}px`;
   }
 });
 
-fileManagerTaskbar.addEventListener('click',()=>{
-  if(fileManager.classList.contains('hide')){
-    fileManager.classList.remove('hide');
-    fileManagerTaskbar.add('active');
-    workingPC.classList.add('running')
-  } else{
-    fileManager.classList.add('hide');
-    fileManagerTaskbar.classList.remove('active');
-    workingPC.classList.add('running')
+fileManagerTaskbar.addEventListener("click", () => {
+  if (fileManager.classList.contains("hide")) {
+    fileManager.classList.remove("hide");
+    fileManagerTaskbar.add("active");
+    workingPC.classList.add("running");
+  } else {
+    fileManager.classList.add("hide");
+    fileManagerTaskbar.classList.remove("active");
+    workingPC.classList.add("running");
   }
   topZindex++;
   fileManager.style.zIndex = topZindex;
-})
+});
 
 let isDraggingPC = false;
 let offsetXPC = 0;
 let offsetYPC = 0;
- 
-pcHeader.addEventListener('mousedown',(e)=>{
-  if(fileManager.classList.contains('fullsize')) return
-  if(e.target === minimizePC || e.target === changeSizePC || e.target === closePc) return
+
+pcHeader.addEventListener("mousedown", (e) => {
+  if (fileManager.classList.contains("fullsize")) return;
+  if (
+    e.target === minimizePC ||
+    e.target === changeSizePC ||
+    e.target === closePc
+  )
+    return;
 
   isDraggingPC = true;
-  pcHeader.classList.add('dragging');
+  pcHeader.classList.add("dragging");
 
   const PCrect = fileManager.getBoundingClientRect();
   offsetXPC = e.clientX - PCrect.left;
@@ -271,9 +277,9 @@ pcHeader.addEventListener('mousedown',(e)=>{
 
   topZindex++;
   fileManager.style.zIndex = topZindex;
-})
-document.addEventListener('mousemove',(e)=>{
-  if(!isDraggingPC) return
+});
+document.addEventListener("mousemove", (e) => {
+  if (!isDraggingPC) return;
 
   let newLeftPC = e.clientX - offsetXPC;
   let newTopPC = e.clientY - offsetYPC;
@@ -287,16 +293,76 @@ document.addEventListener('mousemove',(e)=>{
   if (newLeftPC > maxLeft) newLeftPC = maxLeft;
   if (newTopPC > maxTop) newTopPC = maxTop;
 
-  fileManager.style.left = `${newLeftPC}px`
-  fileManager.style.top = `${newTopPC}px`
-})
+  fileManager.style.left = `${newLeftPC}px`;
+  fileManager.style.top = `${newTopPC}px`;
+});
 
-document.addEventListener('mouseup',()=>{
+document.addEventListener("mouseup", () => {
   isDraggingPC = false;
-  fileManager.classList.remove('dragging')
-})
+  fileManager.classList.remove("dragging");
+});
 
-fileManager.addEventListener('click',()=>{
+fileManager.addEventListener("click", () => {
   topZindex++;
   fileManager.style.zIndex = topZindex;
+});
+
+desktopFolder.forEach((e)=>{
+  e.addEventListener("dblclick", () => {
+  folderContent.classList.remove('hide')
+  chooseFolder.innerHTML = `<div class="innerFolder  w-15  flex flex-col gap-1">
+                    <img src="./asstes/1280px-Windows_11_FOLDER.svg.png" alt="">
+                    <h3 class="text-[2vh] text-center">Folder 1</h3>
+                  </div>
+                  <div class="innerFolder  w-15  flex flex-col gap-1">
+                    <img src="./asstes/1280px-Windows_11_FOLDER.svg.png" alt="">
+                    <h3 class="text-[2vh] text-center">Folder 1</h3>
+                  </div>
+                  <div class="innerFolder h-17 w-15 flex flex-col gap-1">
+                    <img class="h-[90%] w-[75%] ml-2 " src="./asstes/1280px-Visual_Studio_Code_1.35_icon.svg.png" alt="">
+                    <h3 class="text-[2vh] text-center">VS Code</h3>
+                  </div>`;
+});
+})
+
+documentFolder.forEach((e)=>{
+  e.addEventListener('dblclick',()=>{
+    folderContent.classList.remove('hide');
+    chooseFolder.innerHTML = `<div class="innerFolder  w-15  flex flex-col gap-1">
+                    <img src="./asstes/1280px-Windows_11_FOLDER.svg.png" alt="">
+                    <h3 class="text-[2vh] text-center">Images</h3>
+                  </div>
+                  <div class="innerFolder  w-15  flex flex-col gap-1">
+                    <img src="./asstes/1280px-Windows_11_FOLDER.svg.png" alt="">
+                    <h3 class="text-[2vh] text-center">Pdfs</h3>
+                  </div>
+                  <div class="innerFolder  w-15  flex flex-col gap-1">
+                    <img src="./asstes/1280px-Windows_11_FOLDER.svg.png" alt="">
+                    <h3 class="text-[2vh] text-center">Papers</h3>
+                  </div>
+                  <div class="innerFolder  w-15  flex flex-col gap-1">
+                    <img src="./asstes/1280px-Windows_11_FOLDER.svg.png" alt="">
+                    <h3 class="text-[2vh] text-center">Books</h3>
+                  </div>
+                  <div class="innerFolder  w-15  flex flex-col gap-1">
+                    <img src="./asstes/1280px-Windows_11_FOLDER.svg.png" alt="">
+                    <h3 class="text-[2vh] text-center">Data</h3>
+                  </div>
+                  <div class="innerFolder  w-15  flex flex-col gap-1">
+                    <img src="./asstes/1280px-Windows_11_FOLDER.svg.png" alt="">
+                    <h3 class="text-[2vh] text-center">Credentials</h3>
+                  </div>
+                  <div class="innerFolder  w-15  flex flex-col gap-1">
+                    <img src="./asstes/1280px-Windows_11_FOLDER.svg.png" alt="">
+                    <h3 class="text-[2vh] text-center">Form Data</h3>
+                  </div>
+                  <div class="innerFolder  w-15  flex flex-col gap-1">
+                    <img src="./asstes/1280px-Windows_11_FOLDER.svg.png" alt="">
+                    <h3 class="text-[2vh] text-center">Marksheets</h3>
+                  </div>
+                  <div class="innerFolder  w-15  flex flex-col gap-1">
+                    <img src="./asstes/1280px-Windows_11_FOLDER.svg.png" alt="">
+                    <h3 class="text-[2vh] text-center">DL</h3>
+                  </div>`
+  })
 })

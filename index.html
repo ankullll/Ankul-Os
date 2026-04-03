@@ -12,7 +12,7 @@
     <title>ANKUL OS</title>
   </head>
   <body>
-    <div class="desktop h-[100vh] w-[100vw] overflow-hidden relative">
+    <div class="desktop  h-[100vh] w-[100vw] overflow-hidden relative">
       <div
         class="appView h-120 w-200 z-5 bg-gray-800 absolute left-[250px] top-[100px] rounded-xl text-[#dadada] overflow-hidden hide border border-[#ffffff45]"
       >
@@ -92,13 +92,12 @@
             </div>
           </div>
           <div class="pc-body-main h-[95%] w-full flex">
-            <div
-              class="body-main-left h-full w-[20%] border-r border-[#ffffff25]"
+            <div  class="body-main-left h-full w-[20%] border-r border-[#ffffff25]"
             >
               <div class="left-top h-[70%] w-full px-4">
                 <h3 class="px-2 pt-3">Quick Access</h3>
-                <h3 class="px-2 pt-2">Desktop</h3>
-                <h3 class="px-2 pt-2">Documents</h3>
+                <h3 class="px-2 pt-2 desktopFolder selection-none">Desktop</h3>
+                <h3 class="px-2 pt-2 documentsFolder">Documents</h3>
                 <h3 class="px-2 pt-2">Downloads</h3>
                 <h3 class="px-2 pt-2">Pictures</h3>
                 <h3 class="px-2 pt-2">Music</h3>
@@ -107,12 +106,12 @@
                 <div class="w-full h-[1px] bg-[#ffffff25] mt-5"></div>
               </div>
             </div>
-            <div class="body-main-right w-[83%] flex px-3 pt-2 flex-col">
+            <div class="body-main-right w-[83%] flex px-3 pt-2 flex-col relative">
               <div
                 class="flex p-5 gap-x-5 flex-wrap flex-none justify-start w-full h-[45%]"
               >
                 <div
-                  class="folder h-15 w-40 border border-[#ffffff25] flex justify-start items-center rounded"
+                  class="desktopFolder  folder h-15 w-40 border border-[#ffffff25] flex justify-start items-center rounded"
                 >
                   <img
                     class="h-[90%]"
@@ -122,7 +121,7 @@
                   <h1 class="px-2">Desktop</h1>
                 </div>
                 <div
-                  class="folder h-15 w-40 border border-[#ffffff25] flex justify-start items-center rounded flex-wrap"
+                  class="documentsFolder folder h-15 w-40 border border-[#ffffff25] flex justify-start items-center rounded flex-wrap"
                 >
                   <img
                     class="h-[90%]"
@@ -179,6 +178,13 @@
                   </div>
                 </div>
               </div>
+              <div class="folderContent bg-gray-800 h-full w-full  transition-all  absolute top-0 left-0 hide">
+                <div class=" w-full  py-3 px-6 flex gap-2 gap-x-7 chooseFolder flex-wrap">
+                   
+                  
+                  
+                </div>
+              </div> 
             </div>
           </div>
         </div>
@@ -212,11 +218,7 @@
         <div
           class="taskbar-center h-full w-[20%] flex items-center justify-center gap-2 overflow-hidden"
         >
-          <!-- <img
-            class="h-[80%] object-cover active:scale-90 rounded-xl window-logo"
-            src="./asstes/[CITYPNG.COM]HD Windows 11 Logo Icon Transparent Background - 2000x2000.png"
-            alt=""
-          /> -->
+          
           <div
             class="h-full w-[10%] hover:bg-[#dadada50] hover:rounded flex items-center justify-center window-logo"
           >
